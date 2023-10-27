@@ -7,6 +7,13 @@ for (let i = 0; i < nParticipantes; i++) {
     participantes[i] = `Joao ${i + 1}`
 }
 
+function cadastrar() {
+    for (let j = 0; j < nParticipantes; j++) {
+        
+        nome = prompt(`Insira o nome do ${j + 1} participante`);
+        participantes[j] = nome;
+    }
+}
 
 function mostraParticipante(posicao) {
     if (posicao <= participantes.length && posicao >= 0) {
@@ -17,12 +24,10 @@ function mostraParticipante(posicao) {
     }
 }
 
-function cadastrar() {
-    for (let j = 0; j < nParticipantes; j++) {
-
-        nome = prompt(`Insira o nome do ${j + 1} participante`);
-        participantes[j] = nome;
-    }
+function sorteia(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min);
 }
 
 btCadastro = document.querySelector('.cadastrar');
@@ -39,11 +44,6 @@ btCadastro.onclick = function () {
     }
 }
 
-function sorteia(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min);
-}
 
 btVencedor = document.querySelector('.vencedor');
 btVencedor.onclick = function () {
